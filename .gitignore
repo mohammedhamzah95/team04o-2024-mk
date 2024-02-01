@@ -1,16 +1,24 @@
-# Cache objects
-packer_cache/
+# Files, Folders, security keys, and Binaries to ignore
 
-# Crash log
-crash.log
-
-# https://www.packer.io/guides/hcl/variables
-# Exclude all .pkrvars.hcl files, which are likely to contain sensitive data, 
-# such as password, private keys, and other secrets. These should not be part of 
-# version control as they are data points which are potentially sensitive and 
-# subject to change depending on the environment.
-#
-*.pkrvars.hcl
-
-# For built boxes
+*.vdi
 *.box
+.vagrant/
+*console.log
+packer-cache/
+packer_cache/
+*.pem
+*~$
+*.ova
+output*/
+vagrant.d/
+*.iso
+variables.pkr.hcl
+*.priv
+variables.json
+.DS_Store
+id_ed25519*
+id_rsa*
+id_rsa.pub
+.Vagrantfile*
+Vagrantfile~
+config.default.yml
