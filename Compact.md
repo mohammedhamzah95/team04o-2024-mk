@@ -20,4 +20,4 @@ If a team member has gotten to the point of two strikes, then the PM and Mr. Haj
 
 ## Signatures
 
-Ronan Valarese, Arturo Arreola, ...
+Ronan Valarese, Arturo Arreola, Mohammed Khan
