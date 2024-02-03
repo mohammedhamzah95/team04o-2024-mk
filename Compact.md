@@ -18,6 +18,8 @@ Team 4 will be meeting and communicating somewhat frequently, so due to this, mi
 ## Restoration Methods
 If a team member has gotten to the point of two strikes, then the PM and Mr. Hajek will work out a way to have the member contribute sufficently to the group. If no solution can be found then the member will be removed from the group.
 
+Solutions: letter about what said member did wrong and how they can fix it
+
 ## Signatures
 
-Ronan Valarese, Arturo Arreola, Mohammed Khan
+Ronan Valarese, Arturo Arreola, Nikhil Mohanty, and Mohammed Khan
