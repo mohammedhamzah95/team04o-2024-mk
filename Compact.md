@@ -22,4 +22,4 @@ Solutions: letter about what said member did wrong and how they can fix it
 
 ## Signatures
 
-Ronan Valarese, Arturo Arreola, Nikhil Mohanty, and Mohammed Khan
+Ronan Valarese (rvalarese@hawk.iit.edu) Arturo Arreola (aarreola1@hawk.iit.edu) Nikhil Mohanty (nmohanty@hawk.iit.edu) Mohammed Khan (mkhan105@hawk.iit.edu)
