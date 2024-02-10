@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us - Course Ratings</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="course.html">Courses</a></li>
+                <li><a href="review.html">Leave a Review</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="auth-nav"><a href="login.html">Login/Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Contact Us</h1>
+        <p>If you have any questions or feedback, please don't hesitate to reach out to us.</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            
+            <label for="year">Year in School:</label>
+            <select id="year" name="year">
+                <option value="freshman">Freshman</option>
+                <option value="sophomore">Sophomore</option>
+                <option value="junior">Junior</option>
+                <option value="senior">Senior</option>
+                <option value="graduate">Graduate</option>
+            </select>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            
+            <input type="submit" value="Send Message">
+        </form>
+        <section id="faq">
+            <h2>FAQ</h2>
+            <p><strong>Question 1:</strong> Answer to question 1...</p>
+            <p><strong>Question 2:</strong> Answer to question 2...</p>
+            <!-- Add more FAQs as needed -->
+        </section>
+    </main>
+    <script src="js/activeNav.js"></script>
+</body>
+</html>
