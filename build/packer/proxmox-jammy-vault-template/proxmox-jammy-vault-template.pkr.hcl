@@ -171,6 +171,15 @@ build {
   # Uncomment this block to add your own custom bash install scripts
   # This block you can add your own shell scripts to customize the image you are creating
   ########################################################################################################################
+  
+  provisioner "shell" {
+  execute_command = "echo 'vagrant' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'"
+  inline = <<-SHELL
+    sudo firewall-cmd --zone=meta-network --add-port=8200/tcp --permanent
+    sudo firewall-cmd --reload
+    echo "Port 8200/tcp has been opened on the meta-network zone and firewall reloaded."
+  SHELL
+  }
 
 
 }
