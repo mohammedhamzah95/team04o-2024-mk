@@ -1,18 +1,19 @@
 
-### to get to main build server, the others will go off from this main one ###
+# to get to main build server, the others will go off from this main one #
 
-When entering the Terminal 
+When entering the Terminal
     - from the home directory copy and past
-        - ssh -i "C:\Users\palad\OneDrive\Personal Vault\id_ed25519_proxmox" yourhawkid@system45.rice.iit.edu
-            - change the yourhawkid to your name e.g. aarreola1@system45.rice.iit.edu
-    
+        - ssh -i "C:\Users\palad\OneDrive\Personal Vault\id_ed25519_proxmox" <yourhawkid@system45.rice.iit.edu>
+            - change the yourhawkid to your name e.g. <aarreola1@system45.rice.iit.edu>
+
 You'll then be presented with: aarreola1@philedelphiaphilharmonic:~$
     - When you arrive here, you will immedietly do: . .bashrc
         - your home will change color, indicating its been started
 
         ***New instance***
 
-### To access vault ###
+# To access vault #
+
     - Redo main server step (depending)
         - You will immdediatly will copy the following:
             - cd team04o-2024/build/terraform/proxmox-jammy-ubuntu-vault-infra  
@@ -30,12 +31,9 @@ You'll then be presented with: aarreola1@philedelphiaphilharmonic:~$
 
         ***New instance***
 
-### To access new vanilla server ###
+# To access new vanilla server #
+
     - Redo main build server step (depending)
             - You will immdediatly will copy the following:
                 - cd team04o-2024/build/terraform/proxmox-jammy-ubuntu-infra
                     - ssh -i ./id_ed25519_ubuntu_vanilla_server_key vagrant@system90.rice.iit.edu
-                        
-
-                
-
