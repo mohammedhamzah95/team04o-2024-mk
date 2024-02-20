@@ -5,7 +5,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 packer {
   required_plugins {
     virtualbox = {
-      version = ">= 1.0.8"
+      version = ">= 1.1.7"
       source  = "github.com/hashicorp/proxmox"
     }
   }
@@ -24,6 +24,12 @@ source "proxmox-iso" "proxmox-jammy-ubuntu" {
     "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
     "<f10><wait>"
   ]
+    additional_iso_files {
+    device           = "ide0"
+    iso_url          = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
+    iso_checksum     = "none"
+    unmount          = true
+  }
   boot_wait = "5s"
   cores     = "${var.NUMBEROFCORES}"
   node      = "${local.NODENAME}"
