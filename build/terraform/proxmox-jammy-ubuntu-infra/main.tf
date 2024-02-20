@@ -32,7 +32,7 @@ data "vault_generic_secret" "pm_api_token_id" {
 }
 
 data "vault_generic_secret" "pm_api_token_secret" {
-  path = "secret/team04o-token-tf-system"
+  path = "secret/team04o-token-tf-syste"
 }
 
 data "vault_generic_secret" "target_node" {
