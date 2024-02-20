@@ -38,5 +38,5 @@ provider "proxmox" {
 provider "consul" {
   # insecure_https = true
   datacenter = "rice-dc-1"
-  address    = "${var.consulip-240-prod-system28}:8500"
+  address    = "${var.consulip-241-prod-system28}:8500"
 }

@@ -24,7 +24,6 @@ source "proxmox-iso" "proxmox-jammy-ubuntu" {
     "autoinstall ds=nocloud-net\\;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ---<wait>",
     "<f10><wait>"
   ]
-
   boot_wait = "5s"
   cores     = "${var.NUMBEROFCORES}"
   node      = "${local.NODENAME}"
@@ -46,6 +45,7 @@ source "proxmox-iso" "proxmox-jammy-ubuntu" {
   iso_urls         = "${var.iso_urls}"
   iso_storage_pool = "local"
   memory           = "${var.MEMORY}"
+
 
   network_adapters {
     bridge = "vmbr0"

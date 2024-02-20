@@ -12,8 +12,8 @@ keypath             = "id_ed25519_vault_server_key" # The path to the private ke
 # No need to change these values
 ###############################################################################
 pm_log_enable = true                           # Optional; defaults to false) Enable debug logging, see the section below for logging details
-pm_parallel   = 1                              # (Optional; defaults to 4) Allowed simultaneous Proxmox processes (e.g. creating resources).
-pm_timeout    = 600                            # (Optional; defaults to 300) Timeout value (seconds) for proxmox API calls.
+pm_parallel   = 2                              # (Optional; defaults to 4) Allowed simultaneous Proxmox processes (e.g. creating resources).
+pm_timeout    = 1200                            # (Optional; defaults to 300) Timeout value (seconds) for proxmox API calls.
 pm_log_file   = "terraform-plugin-proxmox.log" # (Optional; defaults to terraform-plugin-proxmox.log) If logging is enabled, the log file the provider will write logs to.
 ###############################################################################
 # This is a variable to append to your cloud instances so they have a unique
@@ -33,4 +33,4 @@ template_to_clone = "team04o-vault-server" # The name of the template to clone
 memory    = 4096  # Memory size of a VM
 cores     = 1     # vCPU = cores * sockets
 sockets   = 1     # vCPU = cores * sockets
-disk_size = "30G" # Disk size of a VM - min size must equal to the disk size of your clone image
+disk_size = "25G" # Disk size of a VM - min size must equal to the disk size of your clone image
