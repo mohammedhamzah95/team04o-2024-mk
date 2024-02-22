@@ -6,6 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/login.css">
+    <!-- Google Sign-In button -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <!-- Google Sign-In button -->
+</head>
 </head>
 
 <body>
@@ -41,13 +46,26 @@
         <button type="submit">login</button>
         <a href="signup.html">Don't have an account? Sign up</a>
         <!-- Google Sign-In button -->
-        <div class="google-btn" style="margin-top: 20px;">
-          <a href="/auth/google" class="google-sign-in">Sign in with Google</a>
-        </div>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
       </form>
+      </script>
     </div>
   </div>
-
+  <script>
+    function onSignIn(googleUser) {
+      var id_token = googleUser.getAuthResponse().id_token;
+      fetch('/path-to-your-login-endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ token: id_token })
+      }).then(function(response) {
+        // Handle response from your server
+      });
+    }
+  </script>
+  <!-- Google Sign-In button -->
 </body>
 
 </html>
