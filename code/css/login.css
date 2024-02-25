@@ -135,10 +135,13 @@ body {
     transition: all 0.3 ease;
     cursor: pointer;
   }
-  
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 300px;
-    margin: 0 auto;
+  .form-control {
+    border-radius: 10px;
   }
+  .container {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 150px; /* Set the container height to viewport height */
+  }
+  
