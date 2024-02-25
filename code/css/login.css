@@ -142,6 +142,6 @@ body {
     display: flex;
     justify-content: center; /* Horizontally center the content */
     align-items: center; /* Vertically center the content */
-    height: 200px; /* Set the container height to viewport height */
+    height: 150px; /* Set the container height to viewport height */
   }
   
