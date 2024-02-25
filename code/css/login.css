@@ -135,7 +135,9 @@ body {
     transition: all 0.3 ease;
     cursor: pointer;
   }
-  
+  .form-control {
+    border-radius: 10px;
+  }
   .container {
     position: relative;
     z-index: 1;
