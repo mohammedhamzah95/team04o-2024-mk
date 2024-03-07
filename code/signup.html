@@ -55,7 +55,7 @@
   <script>
     function onSignIn(googleUser) {
       var id_token = googleUser.getAuthResponse().id_token;
-      fetch('/path-to-your-signup-endpoint', {
+      fetch('/http://localhost:80/api/sessions/oauth/google', { //testing link
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
