@@ -54,16 +54,21 @@
   </div>
   <script>
     function onSignIn(googleUser) {
-      var id_token = googleUser.getAuthResponse().id_token;
-      fetch('/http://localhost:80/api/sessions/oauth/google', { //testing link
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ token: id_token })
-      }).then(function(response) {
+      //var id_token = googleUser.getAuthResponse().id_token;
+      //fetch('/http://localhost:80/api/sessions/oauth/google', { //testing link
+        //method: 'POST',
+        //headers: {
+          //'Content-Type': 'application/json'
+        //},
+        //body: JSON.stringify({ token: id_token })
+      //}).then(function(response) {
         // Handle response from your server
-      });
+      //});
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     }
   </script> 
    <!-- Google Sign-In button -->
