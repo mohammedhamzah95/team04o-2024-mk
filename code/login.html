@@ -63,17 +63,23 @@
   </div>
   <script>
     function onSignIn(googleUser) {
-      var id_token = googleUser.getAuthResponse().id_token;
-      fetch('/path-to-your-login-endpoint', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ token: id_token })
-      }).then(function(response) {
-        // Handle response from your server
-      });
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+
+    // Display confirmation message
+    var confirmationMessage = document.createElement("div");
+    confirmationMessage.innerHTML = `<p>Welcome, ${profile.getName()}! You have successfully signed in.</p>`;
+    document.body.appendChild(confirmationMessage);
+
+    // Hide the Google Sign-In button
+    var signInButton = document.getElementsByClassName("g-signin2")[0];
+    if (signInButton) {
+      signInButton.style.display = 'none';
     }
+  }
   </script>
   <!-- Google Sign-In button -->
 </body>
