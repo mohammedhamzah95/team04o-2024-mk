@@ -1,87 +1,87 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>ScarletHawkReviews</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/login.css">
-    <!-- Google Sign-In button -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com">
 </head>
-
 <body>
 
-  <header>
+<header>
     <nav>
-      <div class="centered">
-        <div class="logo">ScarletHawkReviews</div>
-        <div class="logo-img">
-          <img src="./images/logo.png" alt="ScarletHawkReviews Logo">
+        <div class="centered">
+            <div class="logo">ScarletHawkReviews</div>
+            <div class="logo-img"><img src="./images/logo.png" alt="ScarletHawkReviews Logo"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
         </div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="aboutus.html">About Us</a></li>
-          <li><a href="help.html">Help</a></li>
-        </ul>
-      </div>
     </nav>
-  </header>
+</header>
 
-  <div class="login-page">
+<div class="login-page">
     <div class="form">
-      <div class="login">
-        <div class="login-header">
-          <h3>LOGIN</h3>
-          <p> Enter your account info to login.</p>
+        <div class="login">
+            <div class="login-header">
+                <h3>LOGIN</h3>
+                <p>Enter your account info to login.</p>
+            </div>
         </div>
-      </div>
-      <form class="mb-3" method="POST" action="/login">
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="text" class="form-control" id="email" placeholder="email" name="email">
+        <form class="mb-3" method="POST" action="/login">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="text" class="form-control" id="email" placeholder="email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <a href="signup.html" class="mt-2 d-block">Don't have an account? Sign up</a>
+        </form>
+        <!-- Container for the Google Sign-In button -->
+        <div id="signin-container" class="container centered">
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
         </div>
-        <div class="mb-3">
-           <label for="password" class="form-label">Password</label>
-           <input type="password" class="form-control" id="password" placeholder="password" name="password">
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-        <a href="signup.html" class="mt-2 d-block">Don't have an account? Sign up</a>
-      </form>
-      <!-- Container for the Google Sign-In button -->
-      <div id="signin-container" class="container centered">
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-      </div>
     </div>
-  </div>
-  <script>
-    function onSignIn(googleUser) {
-      console.log('Google sign-in was successful.');
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId());
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+</div>
 
-      var userInfo = document.createElement("div");
-      userInfo.innerHTML = `<p>Welcome, ${profile.getName()}! <button onclick="signOut();">Sign out</button></p>`;
-      document.body.appendChild(userInfo);
+<script>
+  function onSignIn(googleUser) {
+    console.log('Google sign-in was successful.');
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
 
-      var signInButtonContainer = document.getElementById("signin-container");
-      if (signInButtonContainer) {
-        signInButtonContainer.style.display = 'none';
-      }
-    }
-    
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log('User signed out.');
-        document.location.reload(true);
-      });
-    }
-  </script> 
+    // Remove the sign-in button
+    var signInButtonContainer = document.getElementById("signin-container");
+    signInButtonContainer.style.display = 'none';
+
+    // Show welcome message and sign out button
+    var userInfo = document.createElement("div");
+    userInfo.setAttribute("id", "user-info");
+    userInfo.innerHTML = `<p>Welcome, ${profile.getName()}! <button onclick="signOut();">Sign out</button></p>`;
+    document.body.insertBefore(userInfo, document.body.firstChild); // Insert at the top of the body
+
+    // Alternatively, you could redirect here instead of showing a message
+    // window.location.href = 'Welcome.html';
+  }
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+      document.getElementById('user-info').remove(); // Remove user info
+      document.getElementById('signin-container').style.display = 'block'; // Show sign-in button again
+    });
+  }
+</script> 
 </body>
-
 </html>
