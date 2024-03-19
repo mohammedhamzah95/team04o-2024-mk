@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>ScarletHawkReviews</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/login.css">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Google Sign-In button -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com">
+    <!-- Google Sign-In button -->
 </head>
+
 <body>
 
-<header>
+  <header>
     <nav>
-        <div class="centered">
-            <div class="logo">ScarletHawkReviews</div>
-            <div class="logo-img"><img src="./images/logo.png" alt="ScarletHawkReviews Logo"></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="help.html">Help</a></li>
-            </ul>
+      <div class="centered">
+        <div class="logo">ScarletHawkReviews</div>
+        <div class="logo-img">
+          <img src="./images/logo.png" alt="ScarletHawkReviews Logo">
         </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="help.html">Help</a></li>
+        </ul>
+      </div>
     </nav>
-</header>
+  </header>
 
-<div class="login-page">
+  <div class="login-page">
     <div class="form">
-        <div class="login">
-            <div class="login-header">
-                <h3>LOGIN</h3>
-                <p>Enter your account info to login.</p>
-            </div>
+      <div class="login">
+        <div class="login-header">
+          <h3>LOGIN</h3>
+          <p> Enter your account info to login.</p>
         </div>
-        <form class="mb-3" method="POST" action="/login">
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="text" class="form-control" id="email" placeholder="email" name="email">
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="password" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="signup.html" class="mt-2 d-block">Don't have an account? Sign up</a>
-        </form>
-        <!-- Placeholder for the Google Sign-In button -->
-        <div id="g_id_onload"
-             data-client_id="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com"
-             data-context="signin"
-             data-ux_mode="popup"
-             data-callback="handleCredentialResponse"
-             data-auto_select="true">
+        
+      </div>
+      <form class="mb-3" method="POST" action="/login">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="text" class="form-control" id="email" placeholder="email" name="email">
         </div>
+        <div class="mb-3">
+           <label for="password" class="form-label">Password</label>
+           <input type="password" class="form-control" id="password" placeholder="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a href="signup.html" class="mt-2 d-block">Don't have an account? Sign up</a>
+           <!-- Google Sign-In button -->
+        <div class="container" id="signin-container">
+          <div class="centered">
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+          </div>
+        </div>
+      </form>
     </div>
-</div>
-
-<script>
-    function handleCredentialResponse(response) {
-        console.log("Encoded JWT ID token: " + response.credential);
-        alert('Signed in with Google ID token: ' + response.credential);
-        // Here you might want to send the ID token in 'response.credential' to your server
-    }
-</script> 
-
+  </div>
+  <script>
+      function onSignIn(googleUser) {
+  alert('Signed in');
+}
+  </script> 
 </body>
+
 </html>
