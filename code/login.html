@@ -9,6 +9,7 @@
     <!-- Google Sign-In button -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <!-- Google Sign-In button -->
 </head>
 
@@ -50,38 +51,33 @@
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
         <a href="signup.html" class="mt-2 d-block">Don't have an account? Sign up</a>
-           <!-- Google Sign-In button -->
-        <div class="container" id="signin-container">
-          <div class="centered">
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+             <!-- Placeholder for the Google Sign-In button -->
+        <div id="gSignInWrapper">
+          <div id="customBtn" class="customGPlusSignIn">
+            <span class="icon"></span>
+            <span class="buttonText">Google</span>
           </div>
-        </div>
-      </form>
-    </div>
+      </div>
   </div>
-  <script>
-    function onSignIn(googleUser) {
-      console.log('onSignIn function was called');
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId());
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+</div>
 
-      // Display confirmation message
-      var confirmationMessage = document.createElement("div");
-      confirmationMessage.innerHTML = `<p>Welcome, ${profile.getName()}! You have successfully signed in.</p>`;
-      document.body.appendChild(confirmationMessage);
+<script>
+function handleCredentialResponse(response) {
+  console.log("Encoded JWT ID token: " + response.credential);
+}
 
-      // Hide the Google Sign-In button
-      var signInButtonContainer = document.getElementById("signin-container");
-      if (signInButtonContainer) {
-        signInButtonContainer.style.display = 'none';
-      } else {
-        console.log("Sign-in container not found.");
-      }
-    }
-  </script> 
+window.onload = function() {
+  google.accounts.id.initialize({
+    client_id: "576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com",
+    callback: handleCredentialResponse
+  });
+  google.accounts.id.renderButton(
+    document.getElementById("gSignInWrapper"),
+    { theme: "outline", size: "large" }  // Customization attributes
+  );
+  google.accounts.id.prompt(); // Display the One Tap prompt
+};
+</script>
+
 </body>
-
 </html>
