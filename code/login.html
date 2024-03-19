@@ -6,10 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/login.css">
-    <!-- Google Sign-In button -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com">
-    <!-- Google Sign-In button -->
+    <!-- New Google Identity Services library -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -37,7 +35,6 @@
           <h3>LOGIN</h3>
           <p> Enter your account info to login.</p>
         </div>
-        
       </div>
       <form class="mb-3" method="POST" action="/login">
         <div class="mb-3">
@@ -50,42 +47,31 @@
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
         <a href="signup.html" class="mt-2 d-block">Don't have an account? Sign up</a>
-           <!-- Google Sign-In button -->
-        <div class="container" id="signin-container">
-          <div class="centered">
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-          </div>
-        </div>
       </form>
+      <!-- Container for the Google Sign-In button -->
+      <div id="g_id_signin" data-type="standard"></div>
     </div>
   </div>
+
   <script>
-    function onSignIn(googleUser) {
+    window.onload = function() {
+      google.accounts.id.initialize({
+        client_id: '576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com',
+        callback: onSignIn,
+      });
+      google.accounts.id.renderButton(
+        document.getElementById('g_id_signin'),
+        { theme: 'outline', size: 'large' }  // Customizes the button's appearance
+      );
+    };
+
+    function onSignIn(response) {
       console.log('Google sign-in was successful.')
-      console.log('onSignIn function was called');
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId());
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
-
-      // Display confirmation message
-      var confirmationMessage = document.createElement("div");
-      confirmationMessage.innerHTML = `<p>Welcome, ${profile.getName()}! You have successfully signed in.</p>`;
-      document.body.appendChild(confirmationMessage);
-
-      // Hide the Google Sign-In button
-      var signInButtonContainer = document.getElementById("signin-container");
-      if (signInButtonContainer) {
-        signInButtonContainer.style.display = 'none';
-      } else {
-        console.log("Sign-in container not found.");
-      }
-      // Redirect the user to another page if connected
-      console.log('Redirecting to Welcome.html');
-      window.location.href = 'Welcome.html';
+      console.log('ID token: ' + response.credential);
+      // Handle the signed-in user information or redirect as needed
+      window.location.href = 'Welcome.html'; // Redirect to Welcome.html upon successful sign-in
     }
-  </script> 
+  </script>
 </body>
 
 </html>
