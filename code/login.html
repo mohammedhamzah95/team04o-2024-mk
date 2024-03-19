@@ -61,6 +61,7 @@
   </div>
   <script>
     function onSignIn(googleUser) {
+      console.log('Google sign-in was successful.')
       console.log('onSignIn function was called');
       var profile = googleUser.getBasicProfile();
       console.log('ID: ' + profile.getId());
@@ -80,6 +81,8 @@
       } else {
         console.log("Sign-in container not found.");
       }
+      // Redirect the user to another page if connected
+      window.location.href = ''
     }
   </script> 
 </body>
