@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>ScarletHawkReviews</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/login.css">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com">
 </head>
+
 <body>
 
   <header>
@@ -49,43 +52,44 @@
         <div class="centered">
           <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
         </div>
+      </div>
     </div>
-  </div>
-  <script>
-    function onSignIn(googleUser) {
-      // Get profile information
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId()); 
-      console.log('Full Name: ' + profile.getName());
-      console.log('Given Name: ' + profile.getGivenName());
-      console.log('Family Name: ' + profile.getFamilyName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
+    <script>
+      function onSignIn(googleUser) {
+        // Get profile information
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId());
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
 
-      // You can also use googleUser.getAuthResponse().id_token to get the ID token and send it to your server
+        // You can also use googleUser.getAuthResponse().id_token to get the ID token and send it to your server
 
-      // Hide the sign-in button
-      document.querySelector('.g-signin2').style.display = 'none';
+        // Hide the sign-in button
+        document.querySelector('.g-signin2').style.display = 'none';
 
-      // Optionally display the user info
-      const userInfoDiv = document.createElement('div');
-      userInfoDiv.innerHTML = `Signed in as: <b>${profile.getName()}</b> (${profile.getEmail()})`;
-      document.body.appendChild(userInfoDiv);
+        // Optionally display the user info
+        const userInfoDiv = document.createElement('div');
+        userInfoDiv.innerHTML = `Signed in as: <b>${profile.getName()}</b> (${profile.getEmail()})`;
+        document.body.appendChild(userInfoDiv);
 
-      // Add a sign-out button
-      const signOutButton = document.createElement('button');
-      signOutButton.innerText = 'Sign Out';
-      signOutButton.onclick = function() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log('User signed out.');
-          document.querySelector('.g-signin2').style.display = 'block';
-          userInfoDiv.remove();
-          signOutButton.remove();
-        });
-      };
-      document.body.appendChild(signOutButton);
-    }
-  </script>
+        // Add a sign-out button
+        const signOutButton = document.createElement('button');
+        signOutButton.innerText = 'Sign Out';
+        signOutButton.onclick = function () {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            console.log('User signed out.');
+            document.querySelector('.g-signin2').style.display = 'block';
+            userInfoDiv.remove();
+            signOutButton.remove();
+          });
+        };
+        document.body.appendChild(signOutButton);
+      }
+    </script>
 </body>
+
 </html>
