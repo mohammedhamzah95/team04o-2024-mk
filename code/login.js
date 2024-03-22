@@ -43,7 +43,7 @@ function parseJwt(token) {
 // This setup is for demonstration. In a real application, the token should be sent to your server for validation
 window.onload = function () {
     google.accounts.id.initialize({
-        client_id: "889712336778-tlvu6ihuaa2e5209q1fcdfetu5635c6h.apps.googleusercontent.com",
+        client_id: "576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com",
         callback: handleCredentialResponse
     });
     google.accounts.id.renderButton(
