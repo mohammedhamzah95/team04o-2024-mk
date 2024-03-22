@@ -7,16 +7,7 @@ function handleCredentialResponse(response) {
 }
 
 function displayConfirmation(userName) {
-    const confirmationMessageHTML = `<p>Welcome, ${userName}! You have successfully signed in.</p>`;
-    const confirmationContainer = document.createElement("div");
-    confirmationContainer.style.position = "fixed";
-    confirmationContainer.style.top = "0";
-    confirmationContainer.style.right = "0";
-    confirmationContainer.style.backgroundColor = "#f8f9fa";
-    confirmationContainer.style.borderBottomLeftRadius = "5px";
-    confirmationContainer.style.padding = "10px";
-    confirmationContainer.innerHTML = confirmationMessageHTML;
-    document.body.appendChild(confirmationContainer);
+    alert(`Welcome, ${userName}! You have successfully signed in.`);
 }
 
 function hideSignInButton() {
@@ -33,17 +24,16 @@ function parseJwt(token) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
     return JSON.parse(jsonPayload);
-};
+}
 
 window.onload = function () {
     google.accounts.id.initialize({
         client_id: "576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com",
-        callback: handleCredentialResponse,
-        auto_select: false
+        callback: handleCredentialResponse
     });
     google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
+        document.getElementById("signin-container"), // Adjust if necessary
         { theme: "outline", size: "large" }
     );
-    google.accounts.id.prompt();
+    google.accounts.id.prompt(); // Display the One Tap sign-in prompt if applicable
 };
