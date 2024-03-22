@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>ScarletHawkReviews</title>
+  <title>ScarletHawkReviews - Login</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/login.css">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="889712336778-tlvu6ihuaa2e5209q1fcdfetu5635c6h.apps.googleusercontent.com">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-
 <body>
 
   <header>
@@ -46,49 +43,21 @@
         <button type="submit" class="btn btn-primary">Login</button>
         <a href="signup.html" class="mt-2 d-block">Don't have an account? Sign up</a>
       </form>
-      <!-- Google Sign-In button -->
-      <div class="container" id="signin-container">
-        <div class="centered">
-          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-        </div>
+      <div id="g_id_onload"
+         data-client_id="889712336778-tlvu6ihuaa2e5209q1fcdfetu5635c6h.apps.googleusercontent.com"
+         data-login_uri="http://system68.rice.iit.edu/login"
+         data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+         data-type="standard"
+         data-size="large"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-shape="rectangular"
+         data-logo_alignment="left">
       </div>
     </div>
-    <script>
-      function onSignIn(googleUser) {
-        // Get profile information
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId());
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
-
-        // You can also use googleUser.getAuthResponse().id_token to get the ID token and send it to your server
-
-        // Hide the sign-in button
-        document.querySelector('.g-signin2').style.display = 'none';
-
-        // Optionally display the user info
-        const userInfoDiv = document.createElement('div');
-        userInfoDiv.innerHTML = `Signed in as: <b>${profile.getName()}</b> (${profile.getEmail()})`;
-        document.body.appendChild(userInfoDiv);
-
-        // Add a sign-out button
-        const signOutButton = document.createElement('button');
-        signOutButton.innerText = 'Sign Out';
-        signOutButton.onclick = function () {
-          var auth2 = gapi.auth2.getAuthInstance();
-          auth2.signOut().then(function () {
-            console.log('User signed out.');
-            document.querySelector('.g-signin2').style.display = 'block';
-            userInfoDiv.remove();
-            signOutButton.remove();
-          });
-        };
-        document.body.appendChild(signOutButton);
-      }
-    </script>
+  </div>
+  <script src="login.js"></script>
 </body>
-
 </html>
