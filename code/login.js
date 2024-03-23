@@ -12,13 +12,8 @@ function updateUI() {
     if (userInfoData) {
         const data = JSON.parse(userInfoData);
         displayUser(data);
-        hideLoginOption();
     } else {
-        // Show the login option if the user is not logged in
-        const loginOption = document.querySelector('a[href="login.html"]');
-        if (loginOption) {
-            loginOption.style.display = 'block';
-        }
+        // No user info found, could implement logic to handle anonymous users
     }
 }
 
@@ -31,8 +26,8 @@ function displayUser(data) {
         userInfo.style.top = '0';
         userInfo.style.right = '0';
         userInfo.style.padding = '10px';
-        userInfo.style.backgroundColor = '#333'; // Dark background
-        userInfo.style.color = 'white'; // White text color
+        userInfo.style.backgroundColor = '#333'; // Dark theme
+        userInfo.style.color = 'white';
         userInfo.style.borderBottomLeftRadius = '5px';
         userInfo.style.zIndex = '1000';
         document.body.appendChild(userInfo);
@@ -43,17 +38,18 @@ function displayUser(data) {
             <span>${data.name}</span>
             <button onclick="signOut()" style="cursor: pointer; background-color: #555; color: white; border: none; padding: 5px 10px; border-radius: 5px;">Sign Out</button>
         </div>`;
+    // Hide login options like login buttons or links
+    hideLoginOptions();
 }
 
-function hideLoginOption() {
-    const loginLink = document.querySelectorAll('a[href="login.html"]');
-    loginLink.forEach(link => link.style.display = 'none');
+function hideLoginOptions() {
+    const loginOptions = document.querySelectorAll('a[href="login.html"], a[href="signup.html"]');
+    loginOptions.forEach(option => option.style.display = 'none');
 }
 
 function signOut() {
     sessionStorage.removeItem('userInfo');
-    // Redirect to index.html or another specific page after signing out
-    window.location.href = 'index.html';
+    window.location.reload(); // or redirect to a specific page
 }
 
 function parseJwt(token) {
@@ -65,17 +61,17 @@ function parseJwt(token) {
     return JSON.parse(jsonPayload);
 }
 
-window.onload = function () {
+window.onload = function() {
     google.accounts.id.initialize({
         client_id: "576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com",
-        callback: handleCredentialResponse
+        callback: handleCredentialResponse,
+        auto_select: true,
+        theme: 'dark' // Google One Tap in dark theme
     });
-    updateUI();
-    if (!sessionStorage.getItem('userInfo')) {
-        google.accounts.id.renderButton(
-            document.getElementById("buttonDiv"), // Adjust if necessary
-            { theme: "dark", size: "large" }
-        );
-        google.accounts.id.prompt();
-    }
+    google.accounts.id.prompt((notification) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            console.log('One Tap prompt is not displayed or was skipped.');
+        }
+    });
+    updateUI(); // Update UI based on user session
 };
