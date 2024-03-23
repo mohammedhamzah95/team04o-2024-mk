@@ -12,8 +12,10 @@ function updateUI() {
     if (userInfoData) {
         const data = JSON.parse(userInfoData);
         displayUser(data);
+        hideSignInElements();
     } else {
-        // No user info found, could implement logic to handle anonymous users
+        // Show the sign-in option if the user is not logged in
+        showSignInElements();
     }
 }
 
@@ -26,8 +28,8 @@ function displayUser(data) {
         userInfo.style.top = '0';
         userInfo.style.right = '0';
         userInfo.style.padding = '10px';
-        userInfo.style.backgroundColor = '#333'; // Dark theme
-        userInfo.style.color = 'white';
+        userInfo.style.backgroundColor = 'dark'; // Use dark theme
+        userInfo.style.color = 'white'; // White text color
         userInfo.style.borderBottomLeftRadius = '5px';
         userInfo.style.zIndex = '1000';
         document.body.appendChild(userInfo);
@@ -38,40 +40,44 @@ function displayUser(data) {
             <span>${data.name}</span>
             <button onclick="signOut()" style="cursor: pointer; background-color: #555; color: white; border: none; padding: 5px 10px; border-radius: 5px;">Sign Out</button>
         </div>`;
-    // Hide login options like login buttons or links
-    hideLoginOptions();
 }
 
-function hideLoginOptions() {
-    const loginOptions = document.querySelectorAll('a[href="login.html"], a[href="signup.html"]');
-    loginOptions.forEach(option => option.style.display = 'none');
+function hideSignInElements() {
+    const signInElements = document.querySelectorAll('.g_id_signin, #g_id_onload');
+    signInElements.forEach(element => element.style.display = 'none');
+}
+
+function showSignInElements() {
+    const signInElements = document.querySelectorAll('.g_id_signin, #g_id_onload');
+    signInElements.forEach(element => element.style.display = 'block');
 }
 
 function signOut() {
     sessionStorage.removeItem('userInfo');
-    window.location.reload(); // or redirect to a specific page
+    // Redirect to index.html or another specific page after signing out
+    window.location.href = 'index.html';
 }
 
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
     return JSON.parse(jsonPayload);
 }
 
-window.onload = function() {
+window.onload = function () {
     google.accounts.id.initialize({
         client_id: "576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com",
-        callback: handleCredentialResponse,
-        auto_select: true,
-        theme: 'dark' // Google One Tap in dark theme
+        callback: handleCredentialResponse
     });
-    google.accounts.id.prompt((notification) => {
-        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-            console.log('One Tap prompt is not displayed or was skipped.');
-        }
-    });
-    updateUI(); // Update UI based on user session
+    updateUI();
+    if (!sessionStorage.getItem('userInfo')) {
+        google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"), // Adjust if necessary
+            { theme: "dark", size: "large" } // Ensure the theme is set to dark
+        );
+        google.accounts.id.prompt();
+    }
 };
