@@ -2,16 +2,15 @@
 <html lang="en">
 
 <head>
-  <title>ScarletHawkReviews</title>
+  <title>ScarletHawkReviews - Login</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/login.css">
-  <!-- Google Sign-In button -->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
+
   <header>
     <nav>
       <div class="centered">
@@ -25,11 +24,14 @@
       </div>
     </nav>
   </header>
+
   <div class="login-page">
     <div class="form">
-      <div class="login-header">
-        <h3>LOGIN</h3>
-        <p>Enter your account info to login.</p>
+      <div class="login">
+        <div class="login-header">
+          <h3>LOGIN</h3>
+          <p> Enter your account info to login.</p>
+        </div>
       </div>
       <form class="mb-3" method="POST" action="/login">
         <div class="mb-3">
@@ -42,39 +44,16 @@
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
         <a href="signup.html" class="mt-2 d-block">Don't have an account? Sign up</a>
-        <div class="container" id="signin-container">
-          <div class="centered">
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-          </div>
-        </div>
       </form>
+      <div id="g_id_onload" data-client_id="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com"
+        data-login_uri="https://system68.rice.iit.edu/login" data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with"
+        data-shape="rectangular" data-logo_alignment="left">
+      </div>
     </div>
   </div>
-  <script>
-    function onSignIn(googleUser) {
-      try {
-        console.log('Google sign-in was successful.');
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ', profile.getId());
-        console.log('Name: ', profile.getName());
-        console.log('Image URL: ', profile.getImageUrl());
-        console.log('Email: ', profile.getEmail());
-
-        var confirmationMessage = `<p>Welcome, ${profile.getName()}! You have successfully signed in.</p>`;
-        document.body.insertAdjacentHTML('beforeend', confirmationMessage);
-
-        var signInButtonContainer = document.getElementById("signin-container");
-        if (signInButtonContainer) {
-          signInButtonContainer.style.display = 'none';
-        }
-
-        console.log('User is being redirected.');
-        window.location.href = 'index.html';
-      } catch (error) {
-        console.error("Error during Google sign-in process:", error);
-      }
-    }
-  </script>
+  <script src="login.js"></script>
 </body>
 
 </html>
