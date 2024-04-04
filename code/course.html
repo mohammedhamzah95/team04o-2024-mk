@@ -5,6 +5,9 @@
   <title>ScarletHawkReviews</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.9.2/toastify.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.9.2/toastify.min.js"></script>
+
   <link rel="stylesheet" href="./css/style.css" />
   <style>
     /* Updated CSS with square-shaped rating boxes */
@@ -256,10 +259,13 @@
 
 <body onload="loadData()">
   <!-- Your existing HTML structure -->
+<div class="header-nav">
   <div class="topnav">
+    <a class="topnav-logo" href="index.html"><img src="images/logo.png" height='50' width="50"/></a>
     <a class="active" href="index.html"><u>Home</u></a>
-    <a class="active" href="login.html"><u>Login</u></a>
+    <a class="active login-link" href="login.html"><u>Login</u></a>
   </div>
+</div>
 
   <div class="content">
     <h2><span id="courseName"></span></h2>
@@ -267,7 +273,14 @@
   </div>
 
   <div class="details">
-    <p>Reviews</p>
+    <div class="courseDetails">
+      <h1></h1>
+      <p></p>
+    </div>
+    <div class="instructorsDetails">
+
+    </div>
+    <!-- <p>Reviews</p>
     <ul>
       <li>
         <div class="review-box">
@@ -299,9 +312,14 @@
           <span id="reviewInfo5"></span>
         </div>
       </li>
-    </ul>
-    <a class="button" href="review.html"><u>Leave a review</u></a>
+    </ul> -->
+    <a class="button"><u>Leave a review</u></a>
   </div>
+
+  <dialog id="dialog">
+
+  </dialog>
+
 
   <div class="footer">
     <div class="footer_item">
@@ -311,7 +329,7 @@
       <a class="active" href="help.html"><u>Help</u></a>
     </div>
   </div>
-  <script src="login.js"></script>
+  <script src="./js/course.js"></script>
 </body>
 
 </html>

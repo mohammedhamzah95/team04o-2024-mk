@@ -6,26 +6,45 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.9.2/toastify.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.9.2/toastify.min.js"></script>
 </head>
 
 <body>
   <div class="topnav">
+    <a class="topnav-logo" href="index.html"><img src="images/logo.png" height='50' width="50"/></a>
     <a class="active" href="index.html"><u>Home</u></a>
-    <a class="active" href="login.html"><u>Login</u></a>
+    <a class="active login-link" href="login.html"><u>Login</u></a>
   </div>
 
-  <div class="content">
-    <p>Leave a Review</p>
-    <input id="course input" placeholder="Enter Course Name" class="textbox" name="textboxInput" />
-  </div>
+  <form class="review-form" action="">
+    <div class="content">
+      <p>Leave a Review</p>
 
-  <div class="content">
-    <input id="prof input" placeholder="Enter Professor Name" class="textbox" name="textboxInput" />
-  </div>
+      <input id="course input" placeholder="Enter Course Name" class="textbox" name="textboxInput" />
+    </div>
 
-  <div class="content">
-    <input id="rev input" placeholder="Enter Review" class="textbox" name="textboxInput" />
-  </div>
+    <div class="content">
+      <select id="professor-input"  class="textbox professor-input" name="textboxInput">
+        <option value="" disabled selected>Select Professor</option>
+      </select>
+    </div>
+
+    <div class="content">
+      <input id="rev input" placeholder="Enter Review" class="textbox" name="textboxInput" />
+    </div>
+    <div class="content" id="ratingStars">
+      <span data-id="1" class="star">&#9733;</span>
+      <span data-id="2" class="star">&#9733;</span>
+      <span data-id="3" class="star">&#9733;</span>
+      <span data-id="4" class="star">&#9733;</span>
+      <span data-id="5" class="star">&#9733;</span>
+    </div>
+    <div class="button-container">
+      <button class="submit-button" type="submit">Submit</button>
+    </div>
+  </form>
+
 
   <div class="footer">
     <div class="footer_item">
@@ -35,7 +54,7 @@
       <a class="active" href="help.html"><u>Help</u></a>
     </div>
   </div>
-  <script src="login.js"></script>
+  <script src="js/review.js"></script>
 </body>
 
 </html>
