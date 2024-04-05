@@ -7,8 +7,6 @@
             - change the yourhawkid to your name e.g. <aarreola1@system45.rice.iit.edu>
 You'll then be presented with
     -aarreola1@philedelphiaphilharmonic:~$
-        - When you arrive here, you will immedietly do: . .bashrc
-        - your home will change color, indicating its been started
 
        
 
@@ -36,4 +34,4 @@ open in a new instance
     - Redo main build server step (depending)
             - You immdediatly will copy the following:
                 - cd team04o-2024/build/terraform/proxmox-jammy-ubuntu-infra
-                    - ssh -i ./id_ed25519_ubuntu_vanilla_server_key vagrant@system90.rice.iit.edu
+                    - ssh -i ./id_ed25519_ubuntu_vanilla_server_key vagrant@system68.rice.iit.edu
