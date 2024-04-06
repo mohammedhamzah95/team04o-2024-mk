@@ -69,7 +69,7 @@ function parseJwt(token) {
 
 window.onload = function () {
     google.accounts.id.initialize({
-        client_id: "576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com",
+        client_id: "889712336778-tlvu6ihuaa2e5209q1fcdfetu5635c6h.apps.googleusercontent.com",
         callback: handleCredentialResponse
     });
     updateUI();
