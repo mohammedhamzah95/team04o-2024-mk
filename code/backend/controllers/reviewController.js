@@ -1,11 +1,14 @@
 const Review = require('../models/reviews');
 const User = require('../models/users');
+const router = require('../routers/instructorRouter');
 
 const createInstructorReview = async (req, res) => {
     try {
         const { userId, rating, comment } = req.body;
-        const { instructorId } = req.params;
+        console.log(comment,"{}")
+        const { instructorId } = req.params
 
+        console.log(req.params,"{query}")
         const review = await Review.create({
             userId,
             instructorId,
@@ -35,9 +38,5 @@ const getInstructorReviews = async (req, res) => {
     }
 };
 
-};
 
-module.exports = {
-    createInstructorReview,
-    getInstructorReviews
-};
+module.exports = { createInstructorReview, getInstructorReviews };
