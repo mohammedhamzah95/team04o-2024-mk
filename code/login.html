@@ -1,85 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>ScarletHawkReviews - Login</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./css/login.css" />
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.9.2/toastify.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.9.2/toastify.min.js"></script>
-  </head>
 
-  <body>
-    <header>
-      <nav>
-        <div class="centered">
-          <div class="logo">ScarletHawkReviews</div>
-          <div class="logo-img">
-            <a href="index.html">
-              <img src="./images/logo.png" alt="ScarletHawkReviews Logo" />
-            </a>
-          </div>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="help.html">Help</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+<head>
+  <title>ScarletHawkReviews - Login</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/login.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.9.2/toastify.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.9.2/toastify.min.js"></script>
+</head>
 
-    <div class="login-page">
-      <div class="form">
-        <div class="login">
-          <div class="login-header">
-            <h3>LOGIN</h3>
-            <p>Enter your account info to login.</p>
-          </div>
+<body>
+  <header>
+    <nav>
+      <div class="centered">
+        <div class="logo">ScarletHawkReviews</div>
+        <div class="logo-img">
+          <a href="index.html">
+            <img src="./images/logo.png" alt="ScarletHawkReviews Logo" />
+          </a>
         </div>
-        <form class="mb-3" id="login">
-          <div class="mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="email"
-              placeholder="email"
-              name="email"
-            />
-          </div>
-          <div class="mb-3">
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="password"
-              name="password"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Login</button>
-          <a href="signup.html" class="my-3">Don't have an account? Sign up</a>
-        </form>
-        <div
-          class="mb-3"
-          id="g_id_onload"
-          data-client_id="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com"
-          data-login_uri="https://system68.rice.iit.edu/" data-auto_prompt="false"
-        ></div>
-        <div
-          class="g_id_signin"
-          data-type="standard"
-          data-size="large"
-          data-theme="outline"
-          data-text="sign_in_with"
-          data-shape="rectangular"
-          data-logo_alignment="left"
-        ></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="help.html">Help</a></li>
+        </ul>
       </div>
+    </nav>
+  </header>
+
+  <div class="login-page">
+    <div class="form">
+      <div class="login">
+        <div class="login-header">
+          <h3>LOGIN</h3>
+          <p>Enter your account info to login.</p>
+        </div>
+      </div>
+      <form class="mb-3" id="login">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="email" placeholder="email" name="email" />
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" id="password" placeholder="password" name="password" />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a href="signup.html" class="my-3">Don't have an account? Sign up</a>
+      </form>
+      <div class="mb-3" id="g_id_onload"
+        data-client_id="576961548022-g20uu1iqf1frsf20kbpq2u09osfe66g0.apps.googleusercontent.com"
+        data-login_uri="https://system68.rice.iit.edu/" data-auto_prompt="false"></div>
+      <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with"
+        data-shape="rectangular" data-logo_alignment="left"></div>
     </div>
-    <script src="./js/google.js"></script>
-    <script src="./js/login.js"></script>
-  </body>
+  </div>
+  <script src="./js/google.js"></script>
+  <script src="./js/login.js"></script>
+</body>
+
 </html>
