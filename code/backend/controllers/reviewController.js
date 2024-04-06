@@ -21,7 +21,20 @@ const createInstructorReview = async (req, res) => {
 };
 
 const getInstructorReviews = async (req, res) => {
-    
+    try {
+        const { instructorId } = req.params;
+
+        const reviews = await Review.findAll({
+            where: { instructorId },
+            include: [{ model: User, attributes: ['id', 'name', 'email'] }] 
+        });
+        res.status(200).json(reviews);
+    } catch (error) {
+        console.error('Error fetching tutor reviews:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
 };
 
 module.exports = {
