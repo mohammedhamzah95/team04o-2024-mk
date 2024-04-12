@@ -5,10 +5,9 @@ const router = require('../routers/instructorRouter');
 const createInstructorReview = async (req, res) => {
     try {
         const { userId, rating, comment } = req.body;
-        console.log(comment,"{}")
+     
         const { instructorId } = req.params
 
-        console.log(req.params,"{query}")
         const review = await Review.create({
             userId,
             instructorId,
