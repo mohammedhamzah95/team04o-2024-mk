@@ -2,9 +2,8 @@ const Course = require('../models/courses');
 
 const getCoursesAndInstructors = async (req, res) => {
     
-};
 
-const getAllCourses = async (req, res) => {
+
     try {
         const { id } = req.params;
         const course = await Course.findOne({ where: { id } });
@@ -34,5 +33,5 @@ const getAllCourses = async (req, res) => {
 
 module.exports = {
     getAllCourses,
-    getCoursesAndInstructors
+    getCoursesAndInstructors,
 };
