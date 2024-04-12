@@ -90,6 +90,7 @@ const reviews = [
 (async () => {
   try {
 
+    await sequelize.sync({ force: true }); 
     for (const courseData of coursesData) {
       const course = await Course.create(courseData);
       const instructors = await Promise.all(courseData.instructors.map(name =>
@@ -97,6 +98,22 @@ const reviews = [
       ));
       await course.addInstructors(instructors.map(instructor => instructor[0]));
     }
+    const fakeUsers = [];
+
+    for (let i = 0; i < 16; i++) {
+      const userData = generateFakeUserData();
+      const user = await User.create(userData);
+      fakeUsers.push(user);
+    }
+
+
+    reviews.forEach(review => Review.create({
+      userId: review.userId,
+      instructorId: review.instructorId,
+      rating: review.rating,
+      content: review.content
+    }))
+
 
     console.log("Seed data inserted successfully.");
   } catch (error) {
