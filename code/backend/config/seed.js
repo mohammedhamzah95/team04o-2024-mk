@@ -6,6 +6,14 @@ const Instructor = require('../models/instructor');
 const User = require('../models/users')
 const Review = require('../models/reviews')
 const { faker } = require('@faker-js/faker')
+const generateFakeUserData = () => {
+  return {
+
+    name: faker.internet.userName(),
+    email: faker.internet.email(),
+    googleId: faker.string.uuid()
+  };
+};
 
 const coursesData = [
   { id: 1, code: 'ITMS 428', name: 'Database Security', instructors: ["Kevin Vaccaro", "Maurice Dawson"] },
