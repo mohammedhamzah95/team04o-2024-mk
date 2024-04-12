@@ -3,6 +3,9 @@ require('./associations')
 const { sequelize } = require('./connection');
 const Course = require('../models/courses');
 const Instructor = require('../models/instructor');
+const User = require('../models/users')
+const Review = require('../models/reviews')
+const { faker } = require('@faker-js/faker')
 
 const coursesData = [
   { id: 1, code: 'ITMS 428', name: 'Database Security', instructors: ["Kevin Vaccaro", "Maurice Dawson"] },
