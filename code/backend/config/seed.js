@@ -1,4 +1,5 @@
-require('./sync')
+require('./associations')
+
 const { sequelize } = require('./connection');
 const Course = require('../models/courses');
 const Instructor = require('../models/instructor');
