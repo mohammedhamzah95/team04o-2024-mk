@@ -1,125 +1,297 @@
 body {
-    background-color: rgb(30, 33, 34);
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-  
-  .topnav {
-    overflow: hidden;
-    background-color: #333;
-    text-align: right;
-  }
-  
-  .topnav a {
-    float: right;
-    display: block;
-    color: #f2f2f2;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .footer {
-    overflow: hidden;
-    background-color: #333;
-    color: #f2f2f2;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-  
-  .footer a {
-    float: right;
-    display: block;
-    color: #f2f2f2;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .title {
-    text-align: center;
-    color: #f2f2f2;
-    padding: 10px;
-    font-size: 25px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .content {
-    text-align: center;
-    color: #f2f2f2;
-    padding: 10px;
-    font-size: 25px;
-  }
-  
-  .rating {
-    display: inline;
-    background-color: #1a1919;
-    color: white;
-    padding: 10px;
-    margin-left: 10px;
-  }
-  
-  li {
-    padding: 17px;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  .details {
-    text-align: center;
-    color: #f2f2f2;
-    padding: 10px;
-    font-size: 19px;
-  }
-  
-  .button {
-    border: none;
-    color: white;
-    background-color: #1a1919;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 19px;
-    margin: 4px 4px;
-    cursor: pointer;
-  }
-  
-  #logo {
-    text-align: center;
-    width: 385px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 25px;
-  }
-  
-  #logo img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .textbox {
-    width: 500px;
-    margin-bottom: 25px;
-    height: 50px;
-    padding: 10px;
-    font-size: 15px;
-    border-radius: 15px;
-  }
-  
+  background-color: rgb(30, 33, 34);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  text-align: right;
+  position: relative;
+  padding: 10px 5px;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.footer {
+  overflow: hidden;
+  background-color: #333;
+  color: #f2f2f2;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.footer a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.title {
+  text-align: center;
+  color: #f2f2f2;
+  padding: 10px;
+  font-size: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.content {
+  text-align: center;
+  color: #f2f2f2;
+  padding: 10px;
+  font-size: 25px;
+}
+
+.rating {
+  display: inline;
+  background-color: #1a1919;
+  color: white;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+li {
+  padding: 17px;
+}
+
+ul {
+  list-style: none;
+}
+
+.details {
+  text-align: center;
+  color: #f2f2f2;
+  padding: 10px;
+  font-size: 19px;
+}
+
+.button {
+  border: none;
+  color: white;
+  background-color: #1a1919;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 19px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+#logo {
+  text-align: center;
+  width: 385px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+
+#logo img {
+  width: 100%;
+  height: auto;
+}
+
+.textbox {
+  width: 500px;
+  margin-bottom: 10px;
+  height: 50px;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+
+.professor-input{
+width: 520px;
+height: 70px;
+}
+
+.instructorsDetailsPara {
+font-size: 2rem; 
+margin: 2rem; 
+padding: 10px;
+border: 1px solid #ccc; 
+border-radius: 5px; 
+background-color: #f9f9f9; 
+color: #000;
+display: inline-block;
+cursor: pointer;
+width: 300px;
+}
+
+.selectButton {
+width: 30px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background-image: url('../images/info.svg');
+background-repeat: no-repeat;
+background-position: center;
+background-size: contain;
+}
+
+
+
+
+
+.dialogCloseButton {
+background-color: #ff6347; 
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+display: flex;
+margin-left: auto;
+}
+
+.dialogCloseButton:hover {
+background-color: #ff7f50;
+}
+
+
+
+dialog {
+max-height: 80vh;
+overflow-y: auto;
+}
+
+
+.star-icon {
+margin-left: 10px;
+color: gold;
+}
+
+.star-icon span {
+font-size: 18px; 
+margin-right: 2px; 
+}
+
+.star-icon .filled {
+color: gold; 
+}
+
+
+.index-form{
+margin-bottom: 5rem;
+}
+
+
+.submit-button {
+background-color: #4CAF50;
+border: none;
+color: white; 
+padding: 10px 20px;
+text-align: center; 
+text-decoration: none; 
+display: inline-block; 
+font-size: 16px; 
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+display: flex;
+}
+
+.submit-button:hover {
+background-color: #45a049; 
+}
+
+.button-container{
+color: white;
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+
+
+dialog {
+width: 300px;
+
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+dialog::backdrop {
+background-color: rgba(0, 0, 0, 0.6); 
+}
+dialog > * {
+margin-bottom: 15px;
+}
+
+
+
+
+.reviewContainer {
+border: 1px solid #ccc;
+padding: 10px;
+
+}
+
+.reviewContainer p {
+margin-bottom: 10px;
+}
+
+
+
+
+.ratingText {
+margin-right: 10px;
+}
+
+
+.star-icon {
+font-size: 20px; 
+}
+
+.star-icon .filled {
+color: gold;
+}
+
+.star-icon span {
+color: #ccc;
+}
+
+.star-icon span {
+margin-right: 5px; 
+}
+
+#ratingStars{
+cursor: pointer;
+}
+
+.topnav-logo{
+
+position: absolute;
+left: 5;
+top: 0;
+}

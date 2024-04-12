@@ -144,4 +144,12 @@ body {
     align-items: center; /* Vertically center the content */
     height: 150px; /* Set the container height to viewport height */
   }
-  
+   
+  .hidden{
+    display:none;
+  }
+
+  .my-3{
+    margin: 1rem 0;
+    display: inline-block;
+  }
