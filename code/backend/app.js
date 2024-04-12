@@ -10,7 +10,7 @@ const app = express()
 const dotenv=require('dotenv')
 dotenv.config()
 require('./config/connection')
-require('./config/sync')
+require('./config/associations')
 
 app.use(cors());
 app.use(logger('dev'));
